@@ -5,7 +5,7 @@ const Mower  = require('../mower')
 
 describe('The file reader/parser', function() {
 	it('is able to determine the initial grid size', function() {
-		parser = new Parser('./parser/test_config.conf');
+		parser = new Parser('./test_config.conf');
 		
 		expect(parser.grid.width  == 5);
 		expect(parser.grid.height == 5);
