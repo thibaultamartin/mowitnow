@@ -1,0 +1,16 @@
+{
+  "name": "mowitnow",
+  "version": "1.0.0",
+  "description": "MowItNow exercise for Developper/Architect recruiting process at Xebia",
+  "main": "index.js",
+  "scripts": {
+    "test" : "mocha ./*/**.spec.js",
+    "start": "node ./app/index.js"
+  },
+  "author": "thibaultamartin <mail@thibaultmart.in>",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "mocha": "^3.4.2"
+  }
+}
