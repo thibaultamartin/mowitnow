@@ -29,16 +29,19 @@ Concevoir et écrire un programme s'exécutant via NodeJS ou un outil d’indust
 ## Test
 Le fichier suivant est fourni en entrée : 
 ```
-55
-12N
+5 5
+1 2 N
 GAGAGAGAA
-33E ADAADADDA 52S AGAGAADAGA
+3 3 E
+ADAADADDA
+5 2 S
+AGAGAADAGA
 ```
 On attend le résultat suivant (position finale des tondeuses) :
 ```
-13N
-41E
-54N
+1 3 N
+4 1 E
+5 4 N
 ```
 
 # Exécution
