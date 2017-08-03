@@ -8,13 +8,13 @@ const Model  = require('./mowitnowmodel')
 
 describe('The model', function(){
 	it('can tell whether there are orders left to execute or not', function(){
-		var parser = new Parser('./test_config.conf');
+		var parser = new Parser('./parser/test_config.conf');
 		var model = new Model(parser);
 		expect(model.orders_left_to_execute()).to.be.true;
 	})
 
 	it('can tell if an execution generates locks', function() {
-		var parser = new Parser('./test_config.conf');
+		var parser = new Parser('./parser/test_config.conf');
 		var model = new Model(parser);
 		var grid = new Grid(5,6);
 		var m1 = new Mower(grid, 1,1,'E');
@@ -25,7 +25,7 @@ describe('The model', function(){
 		model.mowers = [m1,m2];
 		expect(model.generate_locks(0)).to.be.true;
 
-		var parser = new Parser('./test_config.conf');
+		var parser = new Parser('./parser/test_config.conf');
 		var model = new Model(parser);
 		var grid = new Grid(5,6);
 		var m1 = new Mower(grid, 1,1,'N');
