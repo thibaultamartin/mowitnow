@@ -2,17 +2,23 @@ const Parser = require('../parser')
 const Grid   = require('../grid') 
 const Mower  = require('../mower')
 
-var parser = new Parser('./instructions.conf')
+const winston = require('winston')
+winston.level = process.env.LOG_LEVEL
 
 function MowItNowModel(parser) {
 	this.grid = parser.grid;
 	this.mowers = parser.mowers;
+	winston.log('debug','Model constructed wuth characteristics',this)
 }
 
 MowItNowModel.prototype.orders_left_to_execute = function() {
 	for(var i=0; i<this.mowers.length; i++) {
-		if(this.mowers[i].orders_to_come.length > 0) return true;
+		if(this.mowers[i].orders_to_come.length > 0) {
+			winston.log('debug', 'Some orders left to execute');
+			return true;
+		}
 	}
+	winston.log('debug', 'No orders left to execute');
 	return false;
 }
 
@@ -36,7 +42,10 @@ MowItNowModel.prototype.generate_locks = function(mower_position) {
 				var other_next_coordinates = this.mowers[i].pretend_to_go_forward();
 				var my_next_coordinates = this.mowers[mower_position].pretend_to_go_forward();
 				if(other_next_coordinates[0] == my_next_coordinates[0] &&
-				   other_next_coordinates[1] == my_next_coordinates[1]) return true;
+				   other_next_coordinates[1] == my_next_coordinates[1]) {
+				   	winston.log('debug', 'This step generates locks');
+					return true;
+				}
 			}
 		}
 	}

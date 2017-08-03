@@ -4,13 +4,17 @@
   "description": "MowItNow exercise for Developper/Architect recruiting process at Xebia",
   "main": "index.js",
   "scripts": {
-    "test" : "mocha ./*/**.spec.js",
-    "start": "node ./app/index.js"
+    "test": "mocha ./*/**.spec.js",
+    "start": "LOG_LEVEL=info node ./app/index.js",
+    "debug": "LOG_LEVEL=debug node ./app/index.js"
   },
   "author": "thibaultamartin <mail@thibaultmart.in>",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.1.0",
     "mocha": "^3.4.2"
+  },
+  "dependencies": {
+    "winston": "^2.3.1"
   }
 }
